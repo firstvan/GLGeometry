@@ -4,7 +4,7 @@
 #include <GL/glut.h>
 
 class myPoint{
-	GLint x, y;
+	GLdouble x, y;
 
 public:
 	myPoint() : x(0), y(0){}
