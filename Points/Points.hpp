@@ -9,26 +9,36 @@ class myPoint{
 public:
 	myPoint() : x(0), y(0){}
 
-	myPoint(GLint rhsX, GLint rhsY) : x(rhsX), y(rhsY)
+	myPoint(GLdouble rhsX, GLdouble rhsY) : x(rhsX), y(rhsY)
 	{}
-	
-	GLint getX(){
+
+	GLdouble getX(){
 		return x;
 	}
 
-	GLint getY(){
+	GLdouble getY(){
 		return y;
 	}
 
-	void setX(GLint rhsx){
+	void setX(GLdouble rhsx){
 		x = rhsx;
 	}
 
-	void setY(GLint rhsy){
+	void setY(GLdouble rhsy){
 		y = rhsy;
 	}
 
-	
+	void display(){
+		glBegin(GL_POINTS);
+		glVertex2d(x, y);
+		glEnd();
+	}
+
+	bool operator==(myPoint rhs){
+		if (this->getX() == rhs.getX() && this->getY() == rhs.getY())
+			return true;
+		return false;
+	}
 
 };
 
