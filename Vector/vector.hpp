@@ -27,6 +27,7 @@ public:
 
 	}
 
+	
 	void display(){
 		glBegin(GL_LINES);
 			glVertex2d(a1.getX(), a1.getY());

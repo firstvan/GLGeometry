@@ -12,6 +12,19 @@ public:
 	myPoint(GLdouble rhsX, GLdouble rhsY) : x(rhsX), y(rhsY)
 	{}
 
+	myPoint(myPoint& rhs){
+		x = rhs.getX();
+		y = rhs.getY();
+	}
+
+	/*myPoint operator=(const myPoint& rhs){
+		if (this != &rhs)
+		{
+			this->setX(rhs.getX());
+			this->setY(rhs.getY());
+		}
+	}*/
+
 	GLdouble getX(){
 		return x;
 	}
@@ -20,11 +33,11 @@ public:
 		return y;
 	}
 
-	void setX(GLdouble rhsx){
+	void setX(GLdouble& rhsx){
 		x = rhsx;
 	}
 
-	void setY(GLdouble rhsy){
+	void setY(GLdouble& rhsy){
 		y = rhsy;
 	}
 
@@ -34,10 +47,14 @@ public:
 		glEnd();
 	}
 
-	bool operator==(myPoint rhs){
+	bool operator==(myPoint& rhs){
 		if (this->getX() == rhs.getX() && this->getY() == rhs.getY())
 			return true;
 		return false;
+	}
+
+	myPoint operator*(double rhs){
+		return myPoint(rhs*this->getX(), rhs*this->getY());
 	}
 
 };
