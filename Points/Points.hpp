@@ -57,6 +57,10 @@ public:
 		return myPoint(rhs*this->getX(), rhs*this->getY());
 	}
 
+	myPoint operator+(myPoint &rhs){
+		return myPoint(this->getX() + rhs.getX(), this->getY() + rhs.getY());
+	}
+
 };
 
 
