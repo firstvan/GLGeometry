@@ -61,6 +61,7 @@ public:
 		return myPoint(this->getX() + rhs.getX(), this->getY() + rhs.getY());
 	}
 
+
 };
 
 

@@ -60,7 +60,19 @@ public:
 		return myVector(this->getP1().getX() + rhs.getP1().getX(), this->getP1().getY() + rhs.getP1().getY(), this->getP2().getX() + rhs.getP2().getX(), this->getP2().getY() + rhs.getP2().getY());
 	}
 
-	
+	//Vector eltolása x,y pontal
+	void eltolas(GLdouble toX, GLdouble toY){
+		GLdouble temp1X = a1.getX() + toX;
+		GLdouble temp1Y = a1.getY() + toY;
+		GLdouble temp2X = a2.getX() + toX;
+		GLdouble temp2Y = a2.getY() + toY;
+		
+		
+		this->a1.setX(temp1X);
+		this->a1.setY(temp1Y);
+		this->a2.setX(temp2X);
+		this->a2.setY(temp2Y);
+	}
 };
 
 
