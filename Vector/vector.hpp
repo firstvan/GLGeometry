@@ -27,7 +27,10 @@ public:
 
 	}
 
-	
+	/*double getBezartSzog(myVector rhs){
+		
+	}*/
+
 	void display(){
 		glBegin(GL_LINES);
 			glVertex2d(a1.getX(), a1.getY());
@@ -51,6 +54,10 @@ public:
 
 	myPoint getP2(){
 		return a2;
+	}
+
+	myVector operator+(myVector rhs){
+		return myVector(this->getP1().getX() + rhs.getP1().getX(), this->getP1().getY() + rhs.getP1().getY(), this->getP2().getX() + rhs.getP2().getX(), this->getP2().getY() + rhs.getP2().getY());
 	}
 
 	
