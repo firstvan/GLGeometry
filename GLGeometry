@@ -1,2 +1,3 @@
 #include "Points\Points.hpp"
 #include "Vector\vector.hpp"
+#include "Color\Color.hpp"

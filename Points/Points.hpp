@@ -2,64 +2,86 @@
 #define POINTS_HPP
 
 #include <GL/glut.h>
+#include "d:\Program Files (x86)\GLGeometry\Color\Color.hpp"
 
 class myPoint{
 	GLdouble x, y;
 
 public:
+	//pont inicializálása
 	myPoint() : x(0), y(0){}
 
+	//pont létrehozása x,y pontban
 	myPoint(GLdouble rhsX, GLdouble rhsY) : x(rhsX), y(rhsY)
 	{}
 
+	//másoló konstruktor
 	myPoint(myPoint& rhs){
 		x = rhs.getX();
 		y = rhs.getY();
 	}
 
-	/*myPoint operator=(const myPoint& rhs){
+	//másoló értékadás
+	/*myPoint& operator=(const myPoint& rhs){
 		if (this != &rhs)
 		{
 			this->setX(rhs.getX());
 			this->setY(rhs.getY());
 		}
+	
 	}*/
 
-	GLdouble getX(){
+	//x visszatérítése
+	GLdouble getX() const{
 		return x;
 	}
 
-	GLdouble getY(){
+	//y visszatérítése
+	GLdouble getY() const{
 		return y;
 	}
 
+	//x beállítása
 	void setX(GLdouble& rhsx){
 		x = rhsx;
 	}
 
+	//y beállytása
 	void setY(GLdouble& rhsy){
 		y = rhsy;
 	}
 
-	void display(){
+	//pont kirajzolása
+	void display() const{
 		glBegin(GL_POINTS);
 		glVertex2d(x, y);
 		glEnd();
 	}
 
-	bool operator==(myPoint& rhs){
+	void display(myColor& pc) const{
+		pc.doColor();
+		glBegin(GL_POINTS);
+		glVertex2d(x, y);
+		glEnd();
+	}
+
+	// pontok egyenlõség vizsgálata
+	bool operator==(myPoint& rhs) const{
 		if (this->getX() == rhs.getX() && this->getY() == rhs.getY())
 			return true;
 		return false;
 	}
 
-	myPoint operator*(double rhs){
+	//pont számmal való szorzása
+	myPoint operator*(const double rhs) const{
 		return myPoint(rhs*this->getX(), rhs*this->getY());
 	}
 
-	myPoint operator+(myPoint &rhs){
+	//pontok összeadása
+	myPoint operator+(const myPoint& rhs){
 		return myPoint(this->getX() + rhs.getX(), this->getY() + rhs.getY());
 	}
+
 
 
 };
